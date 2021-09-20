@@ -1,19 +1,25 @@
-# Есть класс Animal c одним методом voice().
-# class Animal:
-# def voice(self):
-# pass
-# 1. Создать от него три класса наследника и для каждого сделать свою реализацию метода voice().
-# 2. Создать по одному экземпляру всех наследников и вызвать для каждого переопределенный метод voice().
+# Необходимо дополнить "Практическое задание №6" таким образом,
+# чтобы в конце программы мы вызвали статический метод родительского класса Animal,
+# который вывел бы нам количество всех созданных экземпляров.
+# Если мы создали трех наследников в предыдущем задании, то наш метод должен вывести на экран число 3.
 
 class Animal:
+
+    numInstanses = 0
 
     def __init__(self, name, type_animal=None):
         self.name = name
         self.type_animal = type_animal
+        Animal.numInstanses = Animal.numInstanses + 1
 
     def voice(self, voice):
         self.voice = voice
         print('[' + self.type_animal.capitalize() + ' "' + self.name + '" говорит: - ' + self.voice + ']')
+
+    def printNumInstanses():
+        print(Animal.numInstanses)
+
+    printNumInstanses = staticmethod(printNumInstanses)
 
 
 class Lion(Animal):
@@ -52,3 +58,5 @@ cat = Cat('Вася')
 lion.voice()
 dog.voice()
 cat.voice()
+
+lion.printNumInstanses()
