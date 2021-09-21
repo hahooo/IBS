@@ -2,6 +2,7 @@ import threading
 import time
 
 def stream1(interval):
+    print(f'Время: {time.ctime()} Поток: {t1.getName()} - стартовал', end='\r\n')
     i = 10
     while i > 0:
         print(f'Время: {time.ctime()} Поток: {t1.getName()}', i, end='\r\n')
@@ -10,6 +11,7 @@ def stream1(interval):
 
 
 def stream2(interval):
+    print(f'Время: {time.ctime()} Поток: {t2.getName()} - стартовал', end='\r\n')
     i = 10
     while i > 0:
         print(f'Время: {time.ctime()} Поток: {t2.getName()}', i, end='\r\n')
